@@ -1,0 +1,15 @@
+{
+  "name": "search-params",
+  "version": "1.0.0",
+  "description": "A few utils for search parameters.",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eduardomcv/search-params.git"
+  },
+  "author": "eduardomcv",
+  "homepage": "https://github.com/eduardomcv/search-params#readme"
+}
