@@ -11,5 +11,8 @@
     "url": "git+https://github.com/eduardomcv/search-params.git"
   },
   "author": "eduardomcv",
-  "homepage": "https://github.com/eduardomcv/search-params#readme"
+  "homepage": "https://github.com/eduardomcv/search-params#readme",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
 }
