@@ -1,6 +1,8 @@
 export type SearchParamsDictionary = Record<string, string | string[]>;
 
-function generateDictionaryFromSearchString(searchString: string): Partial<SearchParamsDictionary> {
+export function generateDictionaryFromSearchString(
+  searchString: string,
+): Partial<SearchParamsDictionary> {
   const dictionary: Partial<SearchParamsDictionary> = {};
   const searchParams = new URLSearchParams(searchString);
   const entries = Array.from(searchParams);
@@ -26,7 +28,7 @@ function generateDictionaryFromSearchString(searchString: string): Partial<Searc
   return dictionary;
 }
 
-function generateSearchStringFromDictionary(dictionary: SearchParamsDictionary): string {
+export function generateSearchStringFromDictionary(dictionary: SearchParamsDictionary): string {
   const searchParams = new URLSearchParams();
 
   Object.entries(dictionary)
