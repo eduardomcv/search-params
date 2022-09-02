@@ -42,13 +42,3 @@ export function generateSearchStringFromDictionary(dictionary: SearchParamsDicti
 
   return searchParams.toString();
 }
-
-export function getSearchParamsDictionary(): Partial<SearchParamsDictionary> {
-  const searchString = window.location.search;
-  return generateDictionaryFromSearchString(searchString);
-}
-
-export function setSearchParamsDictionary(dictionary: SearchParamsDictionary): void {
-  const searchString = generateSearchStringFromDictionary(dictionary);
-  window.location.search = searchString;
-}
