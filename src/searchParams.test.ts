@@ -1,7 +1,6 @@
 import {
   generateDictionaryFromSearchString,
   generateSearchStringFromDictionary,
-  getSearchParamsDictionary,
   SearchParamsDictionary,
 } from './searchParams';
 
@@ -34,37 +33,5 @@ describe('generateSearchStringFromDictionary', () => {
 
     const searchString = generateSearchStringFromDictionary(dictionary);
     expect(searchString).toBe('param1=test&param2=test1&param2=test2');
-  });
-});
-
-describe('getSearchParamsDictionary', () => {
-  let windowSpy: jest.SpyInstance;
-
-  beforeEach(() => {
-    windowSpy = jest.spyOn(window, 'window', 'get');
-  });
-
-  afterEach(() => {
-    windowSpy.mockRestore();
-  });
-
-  it('should retrieve a dictionary from the search params', () => {
-    windowSpy.mockImplementation(() => ({
-      location: {
-        search: 'param1=test&param2=test1&param2=test2',
-      },
-    }));
-
-    const dictionary = getSearchParamsDictionary();
-
-    expect(dictionary).toStrictEqual(
-      {
-        param1: 'test',
-        param2: [
-          'test1',
-          'test2',
-        ],
-      },
-    );
   });
 });
