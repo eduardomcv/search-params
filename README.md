@@ -1,5 +1,5 @@
 # search-params
-Utils for handling search params using objects.
+Utils for creating and parsing URL search parameters using objects.
 
 ### Usage
 ```ts
@@ -13,12 +13,12 @@ Utils for handling search params using objects.
  *   ]
  * }
  */
-const searchParamObject = generateDictionaryFromSearchString('param1=test1&param2=test2&param2=test3');
+const searchParamObject = createObjectFromSearchString('param1=test1&param2=test2&param2=test3');
 
 /**
  * Returns: 'param1=test1&param2=test2&param2=test3'
  */
-const searchString = generateSearchStringFromObject(
+const searchString = createSearchStringFromObject(
   {
     param1: 'test1',
     param2: [
