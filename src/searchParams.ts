@@ -8,14 +8,14 @@ export function createObjectFromSearchString(
   const entries = Array.from(searchParams);
 
   entries.forEach(([key, value]) => {
-    const dictionaryValue = searchParamsObject[key];
+    const objectValue = searchParamsObject[key];
 
-    if (typeof dictionaryValue === "undefined") {
+    if (typeof objectValue === "undefined") {
       searchParamsObject[key] = value;
-    } else if (Array.isArray(dictionaryValue)) {
-      searchParamsObject[key] = [...dictionaryValue, value];
+    } else if (Array.isArray(objectValue)) {
+      searchParamsObject[key] = [...objectValue, value];
     } else {
-      searchParamsObject[key] = [dictionaryValue, value];
+      searchParamsObject[key] = [objectValue, value];
     }
   });
 
