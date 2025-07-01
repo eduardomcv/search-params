@@ -1,6 +1,6 @@
 # search-params
 
-Utils for creating and parsing URL search parameters using objects.
+Functions for creating and parsing URL search parameters using objects.
 
 ### Usage
 
