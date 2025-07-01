@@ -1,1 +1,4 @@
-export * from "./searchParams";
+export {
+  createObjectFromSearchString,
+  createSearchStringFromObject,
+} from "./searchParams";

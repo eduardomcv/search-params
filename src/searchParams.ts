@@ -1,33 +1,33 @@
-export type SearchParamsDictionary = Record<string, string | string[]>;
+export type SearchParamsObject = Record<string, string | string[]>;
 
-export function generateDictionaryFromSearchString(
+export function createObjectFromSearchString(
   searchString: string,
-): Partial<SearchParamsDictionary> {
-  const dictionary: Partial<SearchParamsDictionary> = {};
+): Partial<SearchParamsObject> {
+  const searchParamsObject: Partial<SearchParamsObject> = {};
   const searchParams = new URLSearchParams(searchString);
   const entries = Array.from(searchParams);
 
   entries.forEach(([key, value]) => {
-    const dictionaryValue = dictionary[key];
+    const dictionaryValue = searchParamsObject[key];
 
     if (typeof dictionaryValue === "undefined") {
-      dictionary[key] = value;
+      searchParamsObject[key] = value;
     } else if (Array.isArray(dictionaryValue)) {
-      dictionary[key] = [...dictionaryValue, value];
+      searchParamsObject[key] = [...dictionaryValue, value];
     } else {
-      dictionary[key] = [dictionaryValue, value];
+      searchParamsObject[key] = [dictionaryValue, value];
     }
   });
 
-  return dictionary;
+  return searchParamsObject;
 }
 
-export function generateSearchStringFromDictionary(
-  dictionary: SearchParamsDictionary,
+export function createSearchStringFromObject(
+  searchParamsObject: SearchParamsObject,
 ): string {
   const searchParams = new URLSearchParams();
 
-  Object.entries(dictionary).forEach(([key, value]) => {
+  Object.entries(searchParamsObject).forEach(([key, value]) => {
     if (Array.isArray(value)) {
       value.forEach((item) => searchParams.append(key, item));
     } else {
